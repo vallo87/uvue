@@ -6,7 +6,7 @@ export class FastifyAdapter extends ConnectAdapter {
   /**
    * Fastify instance
    */
-  protected app: any;
+  protected declare app: any;
 
   public createApp(adapterArgs: any[] = []) {
     let httpsOptions = this.options.https || { key: null, cert: null };
@@ -37,17 +37,27 @@ export class FastifyAdapter extends ConnectAdapter {
     this.server = this.app.server;
   }
 
+  public beforeInstallPlugin() {
+    return this.app.register(require('@fastify/express'));
+  }
+
   /**
    * Start server
    */
   public start(): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.app.listen(this.options.port, this.options.host, err => {
-        if (err) {
-          return reject(err);
-        }
-        resolve();
-      });
+    return new Promise(async (resolve, reject) => {
+      this.app.listen(
+        {
+          host: this.options.host,
+          port: this.options.port,
+        },
+        (err) => {
+          if (err) {
+            return reject(err);
+          }
+          resolve();
+        },
+      );
     });
   }
 
@@ -55,7 +65,7 @@ export class FastifyAdapter extends ConnectAdapter {
    * Stop server
    */
   public stop(): Promise<void> {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       (this.server as any).kill(() => {
         this.app.close(resolve);
       });

@@ -21,7 +21,10 @@ export class ConnectAdapter implements IAdapter {
    */
   protected server: http.Server | https.Server | http2.Http2Server;
 
-  constructor(protected uvueServer: Server, protected options: IAdapterOptions = {}) {
+  constructor(
+    protected uvueServer: Server,
+    protected options: IAdapterOptions = {},
+  ) {
     // Default options
     this.options = Object.assign(
       { host: process.env.HOST || '0.0.0.0', port: process.env.PORT || 8080 },
@@ -74,7 +77,7 @@ export class ConnectAdapter implements IAdapter {
    * Stop server
    */
   public stop(): Promise<void> {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       (this.server as any).kill(resolve);
     });
   }

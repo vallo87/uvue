@@ -10,6 +10,7 @@ export interface IAdapter {
   // Add middlewares
   use(middleware: HandleFunction): any;
   use(path: string, middleware: HandleFunction): any;
+  beforeInstallPlugin?(): Promise<void>;
 
   // Start/stop server
   start(): Promise<void>;

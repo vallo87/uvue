@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import * as LRUCache from 'lru-cache';
+import { LRUCache } from 'lru-cache';
 import { BundleRenderer, createBundleRenderer } from 'vue-server-renderer';
 import { IRenderer, IRendererOptions, IRequestContext } from './interfaces';
 import { jsonEncode } from './utils';
@@ -21,7 +21,7 @@ export class Renderer implements IRenderer {
         {
           cache: new LRUCache({
             max: 1000,
-            maxAge: 1000 * 60 * 15,
+            ttl: 1000 * 60 * 15,
           }),
           runInNewContext: false,
         },

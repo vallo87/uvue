@@ -19,7 +19,7 @@ export const setupDevMiddleware = async (
   let resolve;
   let resolved = false;
 
-  const readyPromise = new Promise(r => {
+  const readyPromise = new Promise((r) => {
     resolve = r;
   });
 
@@ -35,7 +35,7 @@ export const setupDevMiddleware = async (
   const mfs = new MFS();
 
   // Function to read in mfs
-  const readFile = file => {
+  const readFile = (file) => {
     try {
       return mfs.readFileSync(path.join(client.output.path, file), 'utf-8');
     } catch (err) {
@@ -43,11 +43,11 @@ export const setupDevMiddleware = async (
     }
   };
 
-  if (app.getApp().__isKoa) {
-    client.plugins = client.plugins.filter(
-      item => !(item instanceof webpack.HotModuleReplacementPlugin),
-    );
-  }
+  // if (app.getApp().__isKoa) {
+  //   client.plugins = client.plugins.filter(
+  //     item => !(item instanceof webpack.HotModuleReplacementPlugin),
+  //   );
+  // }
 
   // Set simple filename for compiled files
   client.output.filename = '[name].js';
@@ -56,51 +56,51 @@ export const setupDevMiddleware = async (
   const compiler = webpack([client, server]);
   compiler.outputFileSystem = mfs;
 
-  if (app.getApp().__isKoa) {
-    const koaWebpack = require('koa-webpack');
+  // if (app.getApp().__isKoa) {
+  //   const koaWebpack = require('koa-webpack');
 
-    const middleware = await koaWebpack({
-      compiler: compiler.compilers[0],
-      devMiddleware: {
-        index: false,
-        logLevel: 'silent',
-        publicPath: client.output.publicPath,
-        serverSideRender: true,
-        stats: false,
-        ...(app.options.devServer.middleware || {}),
-      },
-      hotClient: {
-        logLevel: 'silent',
-        ...(app.options.devServer.hot || {}),
-      },
-    });
+  //   const middleware = await koaWebpack({
+  //     compiler: compiler.compilers[0],
+  //     devMiddleware: {
+  //       index: false,
+  //       logLevel: 'silent',
+  //       publicPath: client.output.publicPath,
+  //       serverSideRender: true,
+  //       stats: false,
+  //       ...(app.options.devServer.middleware || {}),
+  //     },
+  //     hotClient: {
+  //       logLevel: 'silent',
+  //       ...(app.options.devServer.hot || {}),
+  //     },
+  //   });
 
-    app.use(middleware);
-  } else {
-    // Add hot-middleware client
-    client.entry.app.unshift('webpack-hot-middleware/client');
+  //   app.use(middleware);
+  // } else {
+  // Add hot-middleware client
+  client.entry.app.unshift('webpack-hot-middleware/client');
 
-    // Install dev middlewares
-    app.use(
-      webpackDevMiddleware(compiler.compilers[0], {
-        index: false,
-        log: false,
-        logLevel: 'silent',
-        publicPath: client.output.publicPath,
-        serverSideRender: true,
-        stats: false,
-        ...(app.options.devServer.middleware || {}),
-      }),
-    );
+  // Install dev middlewares
+  app.use(
+    webpackDevMiddleware(compiler.compilers[0], {
+      index: false,
+      log: false,
+      logLevel: 'silent',
+      publicPath: client.output.publicPath,
+      serverSideRender: true,
+      stats: false,
+      ...(app.options.devServer.middleware || {}),
+    }),
+  );
 
-    app.use(
-      webpackHotMiddleware(compiler.compilers[0], {
-        log: false,
-        logLevel: 'silent',
-        ...(app.options.devServer.hot || {}),
-      }),
-    );
-  }
+  app.use(
+    webpackHotMiddleware(compiler.compilers[0], {
+      log: false,
+      logLevel: 'silent',
+      ...(app.options.devServer.hot || {}),
+    }),
+  );
+  // }
 
   // When a compilation finished
   const handleCompilation = () => {
@@ -127,12 +127,15 @@ export const setupDevMiddleware = async (
       throw err;
     }
 
+    // @ts-ignore
     stats = stats.toJson();
 
+    // @ts-ignore
     // tslint:disable-next-line
-    stats.errors.forEach(err => console.error(err));
+    stats.errors.forEach((err) => console.error(err));
+    // @ts-ignore
     // tslint:disable-next-line
-    stats.warnings.forEach(err => console.warn(err));
+    stats.warnings.forEach((err) => console.warn(err));
 
     handleCompilation();
   });

@@ -1,9 +1,9 @@
 import * as dotenv from 'dotenv';
 import { readFileSync, readJsonSync } from 'fs-extra';
 import * as merge from 'lodash/merge';
-import { join, resolve } from 'path';
 import * as path from 'path';
-import * as pino from 'pino';
+import { join, resolve } from 'path';
+import pino from 'pino';
 import 'pino-pretty';
 import { ConnectAdapter } from './adapters/ConnectAdapter';
 import { setupDevMiddleware } from './devMiddleware';

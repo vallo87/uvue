@@ -15,7 +15,7 @@ module.exports = (api, options) => {
         '--port': `specify port (default: ${defaults.port})`,
       },
     },
-    async function(args) {
+    async function (args) {
       const projectDevServerOptions = options.devServer || {};
 
       // Gettings host & port
@@ -37,17 +37,8 @@ async function startServer({ api, host, port, args }) {
 
   const getWebpackConfig = require('../webpack/ssr');
 
-  const {
-    adapter,
-    adapterArgs,
-    uvueDir,
-    https,
-    http2,
-    devServer,
-    spaPaths,
-    renderer,
-    logger,
-  } = api.uvue.getServerConfig();
+  const { adapter, adapterArgs, uvueDir, https, http2, devServer, spaPaths, renderer, logger } =
+    api.uvue.getServerConfig();
 
   const serverConfig = getWebpackConfig(api, { serve: true, client: false, host, port });
   const clientConfig = getWebpackConfig(api, { serve: true, client: true, host, port, hmr: true });
@@ -80,6 +71,9 @@ async function startServer({ api, host, port, args }) {
     spaPaths,
     renderer,
   });
+
+  // For Fastify >= v3
+  await server.getAdapter()?.beforeInstallPlugin();
 
   // Install plugins
   api.uvue.installServerPlugins(server);

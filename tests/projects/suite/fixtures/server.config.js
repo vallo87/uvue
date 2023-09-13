@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { ExpressAdapter, FastifyAdapter, KoaAdapter } from '@uvue/server';
+import { ExpressAdapter, FastifyAdapter } from '@uvue/server';
 
 export default {
   // adapter: FastifyAdapter,

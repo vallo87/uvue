@@ -1,4 +1,3 @@
-import { KoaAdapter } from '@uvue/server';
 import merge from 'lodash/merge';
 
 export default {
@@ -17,10 +16,6 @@ export default {
     }
 
     const adapter = server.getAdapter();
-    if (adapter instanceof KoaAdapter) {
-      server.getApp().keys = [secret];
-    } else {
-      server.use(require('cookie-parser')(secret, opts));
-    }
+    server.use(require('cookie-parser')(secret, opts));
   },
 };

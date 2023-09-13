@@ -7,7 +7,7 @@ const defaults = {
   port: 8080,
 };
 
-const existsSync = filepath => {
+const existsSync = (filepath) => {
   if (!fs.existsSync(filepath)) throw new Error(`${filepath} doesnt exists`);
 };
 
@@ -22,7 +22,7 @@ module.exports = (api, options) => {
         '--port': `specify port (default: ${defaults.port})`,
       },
     },
-    async function(args) {
+    async function (args) {
       const serverConfig = api.uvue.getServerConfig();
       const { uvueDir } = serverConfig;
 
@@ -78,6 +78,9 @@ module.exports = (api, options) => {
         spaPaths,
         renderer,
       });
+
+      // For Fastify >= v3
+      await server.getAdapter()?.beforeInstallPlugin();
 
       // Install plugins
       api.uvue.installServerPlugins(server);

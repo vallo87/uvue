@@ -1,6 +1,6 @@
 {
   "name": "@uvue/vue-cli-plugin-ssr",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "description": "UVue - SSR (Server side rendering) for Vue CLI with ease",
   "main": "index.js",
   "scripts": {
@@ -8,12 +8,12 @@
     "lint:fix": "eslint --fix './**/*.js'",
     "format": "prettier --ignore-path .gitignore --write './**/*.js'"
   },
-  "repository": "https://github.com/universal-vue/uvue",
+  "repository": "https://github.com/vallo87/uvue",
   "bugs": {
-    "url": "https://github.com/universal-vue/uvue/issues"
+    "url": "https://github.com/vallo87/uvue/issues"
   },
   "homepage": "https://universal-vue.github.io/docs/",
-  "author": "Simon Babay <simon@babay.fr>",
+  "author": "Valerio Mazza <mazzai.valerio@gmail.com>, Simon Babay <simon@babay.fr>",
   "license": "MIT",
   "keywords": [
     "vue",

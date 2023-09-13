@@ -1,20 +1,19 @@
 {
   "name": "@uvue/devtools",
-  "version": "0.1.0-alpha.19",
+  "version": "1.0.0",
   "description": "UVue server development tools",
   "main": "index.js",
-  "author": "Simon Babay <simon@babay.fr>",
+  "author": "Valerio Mazza <mazzai.valerio@gmail.com>, Simon Babay <simon@babay.fr>",
   "license": "MIT",
-  "repository": "https://github.com/universal-vue/uvue",
+  "repository": "https://github.com/vallo87/uvue",
   "keywords": [
     "uvue",
     "monitor",
     "devtools"
   ],
   "bugs": {
-    "url": "https://github.com/universal-vue/uvue/issues"
+    "url": "https://github.com/vallo87/uvue/issues"
   },
-  "homepage": "https://universal-vue.github.io/docs/devtools/",
   "scripts": {
     "lint": "eslint './**/*.js'",
     "lint:fix": "eslint --fix './**/*.js'",

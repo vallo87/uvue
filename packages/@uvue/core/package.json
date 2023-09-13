@@ -1,15 +1,14 @@
 {
   "name": "@uvue/core",
-  "version": "0.1.5",
+  "version": "1.0.0",
   "description": "UVue core package",
   "main": "lib/index.js",
   "types": "index.d.ts",
-  "repository": "https://github.com/universal-vue/uvue",
+  "repository": "https://github.com/vallo87/uvue",
   "bugs": {
-    "url": "https://github.com/universal-vue/uvue/issues"
+    "url": "https://github.com/vallo87/uvue/issues"
   },
-  "homepage": "https://universal-vue.github.io/docs/",
-  "author": "Simon Babay <simon@babay.fr>",
+  "author": "Valerio Mazza <mazzai.valerio@gmail.com>, Simon Babay <simon@babay.fr>",
   "license": "MIT",
   "keywords": [
     "vue",

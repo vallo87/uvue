@@ -1,6 +1,6 @@
 {
   "name": "@uvue/server",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "description": "UVue server package",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -12,7 +12,7 @@
     "format": "prettier --ignore-path .gitignore --write 'src/**/*.ts'",
     "prepublishOnly": "npm run build"
   },
-  "repository": "https://github.com/universal-vue/uvue",
+  "repository": "https://github.com/vallo87/uvue",
   "keywords": [
     "ssr",
     "server",
@@ -22,10 +22,10 @@
     "isomorphic",
     "uvue"
   ],
-  "author": "Simon Babay <simon@babay.fr>",
+  "author": "Valerio Mazza <mazzai.valerio@gmail.com>, Simon Babay <simon@babay.fr>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/universal-vue/uvue/issues"
+    "url": "https://github.com/vallo87/uvue/issues"
   },
   "homepage": "https://universal-vue.github.io/docs/",
   "dependencies": {

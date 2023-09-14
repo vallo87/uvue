@@ -2,7 +2,7 @@
 
 Simple helper to traverse (CSS selector-like) and manipulate (jQuery like) AST.
 
-Used in: [https://github.com/universal-vue/uvue](https://github.com/universal-vue/uvue
+Used in: [https://github.com/vallo87/uvue](https://github.com/vallo87/uvue
 
 ## Example
 

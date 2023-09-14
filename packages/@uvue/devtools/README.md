@@ -2,4 +2,4 @@
 
 > UVue SSR server development tools
 
-**Main repository:** https://github.com/universal-vue/uvue
+**Main repository:** https://github.com/vallo87/uvue

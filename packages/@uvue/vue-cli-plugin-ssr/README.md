@@ -2,4 +2,4 @@
 
 > UVue - SSR (Server side rendering) for Vue CLI with ease
 
-**Main repository:** https://github.com/universal-vue/uvue
+**Main repository:** https://github.com/vallo87/uvue

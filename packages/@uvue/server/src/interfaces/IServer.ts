@@ -1,5 +1,5 @@
 import { HandleFunction } from 'connect';
-import * as pino from 'pino';
+import pino from 'pino';
 import { IAdapter } from './IAdapter';
 import { IServerOptions } from './IServerOptions';
 

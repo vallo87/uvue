@@ -1,4 +1,4 @@
-import * as pino from 'pino';
+import pino from 'pino';
 import { RenderCache } from 'vue-server-renderer';
 import { IAdapterOptions } from './IAdapterOptions';
 import { IPlugin } from './IPlugin';

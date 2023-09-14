@@ -5,10 +5,10 @@ import * as path from 'path';
 import { join, resolve } from 'path';
 import pino from 'pino';
 import 'pino-pretty';
+import { Renderer } from './Renderer';
 import { ConnectAdapter } from './adapters/ConnectAdapter';
 import { setupDevMiddleware } from './devMiddleware';
 import { IAdapter, IRenderer, IServer, IServerOptions } from './interfaces';
-import { Renderer } from './Renderer';
 
 export class Server implements IServer {
   /**

@@ -55,8 +55,8 @@
     "prettier": "^1.17.1",
     "querystring": "^0.2.0",
     "recursive-readdir": "^2.2.2",
-    "vue-server-renderer": "^2.6.10",
-    "webpack": "^4.32.2",
+    "vue-server-renderer": "^2.7.14",
+    "webpack": "^4.47.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-node-externals": "^1.7.2",
     "webpackbar": "^3.2.0"

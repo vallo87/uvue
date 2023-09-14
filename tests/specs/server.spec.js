@@ -1,7 +1,7 @@
+import cheerio from 'cheerio';
 import httpMocks from 'node-mocks-http';
 import request from 'request-promise-native';
-import cheerio from 'cheerio';
-import { mockServer, mockContext } from '../utils/unit';
+import { mockContext, mockServer } from '../utils/unit';
 
 let serverMock;
 let bodyHtml;
@@ -14,6 +14,8 @@ const pluginStates = {
 describe('Server and Renderer', () => {
   beforeAll(() => {
     serverMock = mockServer();
+
+    console.log('>>> serverMock', serverMock);
 
     const { plugin } = serverMock;
 

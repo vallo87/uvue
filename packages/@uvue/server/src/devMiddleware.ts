@@ -54,8 +54,9 @@ export const setupDevMiddleware = async (
 
   // Create Webpack compiler
   const compiler = webpack([client, server]);
-  compiler.outputFileSystem = mfs;
+  console.log('compiler', Object.keys(compiler.compilers));
 
+  compiler.compilers.forEach((c) => (c.outputFileSystem = mfs));
   // if (app.getApp().__isKoa) {
   //   const koaWebpack = require('koa-webpack');
 

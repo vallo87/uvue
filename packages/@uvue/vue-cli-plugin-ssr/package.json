@@ -35,7 +35,7 @@
     "vue-eslint-parser": "^6.0.4"
   },
   "dependencies": {
-    "@uvue/rquery": "^0.1.3",
+    "@uvue/rquery": "^1.0.0",
     "chalk": "^2.4.2",
     "chokidar": "^3.0.0",
     "consola": "^2.7.1",
